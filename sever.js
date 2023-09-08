@@ -1,8 +1,8 @@
 const express = require("express");
-// const formatUtcTime = require('./date')
+const formatUtcTime = require('./date')
 app = express();
 
-const utcTime = new Date(Date.now())
+// const utcTime = new Date(Date.now())
 
 
 console.log(utcTime);
@@ -22,7 +22,7 @@ app.get("/api", (request, response) => {
   response.status(200).json({
     slack_name: request.query.slack_name,
     current_day: currentDay,
-    utc_time: utcTime,
+    utc_time: formatUtcTime(),
     track: request.query.track,
     github_file_url:
       "https://github.com/MustaphaAgboola/hngx-task1/blob/main/sever.js",
