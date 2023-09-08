@@ -8,19 +8,20 @@ const currentDay = days[new Date().getDay()];
 app.get('/api', (request, response)=>{
     console.log(request.query)
    
-     response.json({
-        slack_name: request.query.name,
-        current_day: currentDay,
-        utc_time: new Date(),
-        track: request.query.track,
-        github_file_url: '',
-        github_repo_url: '',
-        status: 200
-    })
+     response.status(200).json({
+       slack_name: request.query.slack_name,
+       current_day: currentDay,
+       utc_time: new Date(),
+       track: request.query.track,
+       github_file_url:
+         "https://github.com/MustaphaAgboola/hngx-task1/blob/main/sever.js",
+       github_repo_url: "https://github.com/MustaphaAgboola/hngx-task1",
+       status: 200,
+     });
 })
 
 
-let PORT = 3000
+const PORT = 3000
 
 app.listen(PORT, ()=>{
     console.log(`App is listening on port ${PORT}`);
