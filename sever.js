@@ -14,9 +14,10 @@ const days = [
 const currentDay = days[new Date().getDay()];
 
 const utc = new Date(
-  new Date().getTime() + new Date().getTimezoneOffset() * 60000
+Math.floor(  new Date().getTime() + new Date().getTimezoneOffset() * 60000)
 );
-const utcTime = utc.toISOString().split('.')[0] + 'Z';
+// const utcTime = utc.toISOString().split('.')[0] + 'Z';
+const utcTime = utc.toISOString().split('.')[0] + 'Z'
 
 app.get("/api", (request, response) => {
   response.status(200).json({
