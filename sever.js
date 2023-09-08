@@ -1,8 +1,9 @@
 const express = require("express");
-const formatUtcTime = require('./date')
+// const formatUtcTime = require('./date')
 app = express();
 
-const utcTime = formatUtcTime()
+const utcTime = new Date(Date.now())
+
 
 console.log(utcTime);
 const days = [
