@@ -8,7 +8,7 @@ const formatUtcTime = () => {
   const minutes = String(currentDate.getUTCMinutes()).padStart(2, 0);
   const seconds = String(currentDate.getUTCSeconds()).padStart(2, 0);
 
-  return `${year}-${month}-${day}T$${hour}:${minutes}:${seconds}Z`
+  return `${year}-${month}-${day}T${hour}:${minutes}:${seconds}Z`
 };
 
 module.exports = formatUtcTime
