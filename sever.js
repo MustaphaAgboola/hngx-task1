@@ -1,6 +1,10 @@
 const express = require("express");
+const formatUtcTime = require('./date')
 app = express();
 
+const utcTime = formatUtcTime()
+
+console.log(utcTime);
 const days = [
   "Sunday",
   "Monday",
@@ -13,9 +17,9 @@ const days = [
 
 const currentDay = days[new Date().getDay()];
 
-const utc = new Date( new Date().getTime() + new Date().getTimezoneOffset() * 60000 );
-const utcTime = utc.toISOString().split(".")[0] + "Z";
-// const utcTime = utc.toISOString().split('.')[0] + 'Z'
+// const utc = new Date( new Date().getTime() + new Date().getTimezoneOffset());
+// const utcTime = utc.toISOString().split(".")[0] + "Z";
+// // const utcTime = utc.toISOString().split('.')[0] + 'Z'
 
 app.get("/api", (request, response) => {
   response.status(200).json({
