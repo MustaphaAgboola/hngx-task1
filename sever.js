@@ -5,7 +5,7 @@ app = express();
 // const utcTime = new Date(Date.now())
 
 
-console.log(utcTime);
+// console.log(utcTime);
 const days = [
   "Sunday",
   "Monday",
