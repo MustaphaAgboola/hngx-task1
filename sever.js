@@ -6,9 +6,7 @@ const days = ['Sunday','Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', '
 const currentDay = days[new Date().getDay()];
 
 const utcTime =
-  new Date(new Date().getTime() + new Date().getTimezoneOffset() * 60000)
-    .toISOString()
-    .split(".")[0] + "Z";
+  new Date().toISOString().split('.')[0]+'Z';
 
 app.get('/api', (request, response)=>{
   
@@ -16,7 +14,7 @@ app.get('/api', (request, response)=>{
      response.status(200).json({
        slack_name: request.query.slack_name,
        current_day: currentDay,
-       utc_time: new Date().toISOString(),
+       utc_time: utcTime,
        track: request.query.track,
        github_file_url:
          "https://github.com/MustaphaAgboola/hngx-task1/blob/main/sever.js",
