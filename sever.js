@@ -15,19 +15,10 @@ const currentDay = days[new Date().getDay()];
 
 const now = new Date();
 
-
-const year = now.getFullYear();
-const month = String(now.getMonth() + 1).padStart(2, "0");
-const day = String(now.getDate()).padStart(2, "0");
-const hours = String(now.getUTCHours()).padStart(2, "0");
-const minutes = String(now.getUTCMinutes()).padStart(2, "0");
-const seconds = String(now.getUTCSeconds()).padStart(2, "0");
-
-const utcTime = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}Z`;
-
-;
-
-
+const utc = new Date(
+  new Date().getTime() + new Date().getTimezoneOffset() * 60000
+);
+const utcTime = utc.toISOString().split(".")[0] + "Z";
 
 app.get("/api", (request, response) => {
   response.status(200).json({
